@@ -1,0 +1,33 @@
+Pesquisa: https://forms.gle/oKG9oEfgbX97fWye8
+
+1. Tema - Gestão Finanças Pessoais e Familiares
+
+2. Questão problema - Como simplificar e viabilizar a Gestão Financeira Pessoal e Familiar com aplicativo mobile de simples e fácil uso?
+
+3. Justificativas - texto com referências e estaísticas
+https://www.spcbrasil.org.br/uploads/st_imprensa/analise_educacao_financeira_dividas.pdf
+https://www.aedb.br/seget/arquivos/artigos15/13722130.pdf
+http://www.profiap.org.br/profiap/tcfs-dissertacoes-1/utfpr/2019/dissertacao_francine-patricia-costa_2019.pdf
+http://www.fatecassis.edu.br/wp-content/uploads/2019/05/ENDIVIDAMENTO-DAS-FAM%C3%8DLIAS-BRASILEIRAS.pdf
+http://cnc.org.br/sites/default/files/arquivos/perfil_de_endividamento_das_familias_brasileiras_em_2017.pdf
+http://www.uricer.edu.br/site/pdfs/perspectiva/146_513.pdf
+https://bibliotecadigital.fgv.br/dspace/bitstream/handle/10438/18918/GVcef_Cattelan%3B%20Vieira%3B%20Valcanover.pdf?sequence=1&isAllowed=y
+
+4. Obj Geral: desenvolver app mobile para gestão financeira com usabilidade e ergonomia melhoradas
+
+5. Objs específicos: 
+   . levantam requisitos (definição de necessidades do app, pesquisa com usr - resultados);
+   . hipóteses de solução e processo de validação com orientador;
+   . estudos de IHC para  projeto de interface; 
+   . projeto (diagramas UML, BD); 
+   . prototipação das telas (rabiscoframes); 
+   . implementação (infraestrutura de desenvolvimento - IDE e liguangens, BD - relacionais/objeto-relacionais/noSQL)
+   . desenvolvimento de código; 
+   . testes e correções; 
+   . testes de usabilidade com usr beta 
+
+6. Metodologia (ferramentas usadas para os objetivos específicos:       
+    . estudos de benchmark, pesquisa bibliográfica, entrevistas e pesquIsa com público-alvo; 
+    . protipação- pesq bibliográfica e rabiscoframes; 
+    . implementação - flutter/dart(frontend), python (backend), BD(?)
+ 
