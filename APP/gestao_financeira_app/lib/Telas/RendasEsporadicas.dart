@@ -8,23 +8,23 @@ import 'package:flutter_masked_text/flutter_masked_text.dart';
 import 'package:flutter/material.dart';
 
 
-class DespesasEsporadicas extends StatelessWidget {
+class RendasEsporadicas extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Despesas Esporádicas"),
+        title: Text("Rendas Esporádicas"),
         backgroundColor: Colors.green,
       ),
       body: Container(
-          padding: EdgeInsets.all(10.0), child: TelaDespEsporadicas()),
+          padding: EdgeInsets.all(10.0), child: TelaRendasEsporadicas()),
       drawer: MenuScaffold(),
       backgroundColor: Colors.grey[300],
     );
   }
 }
 
-class TelaDespEsporadicas extends StatelessWidget {
+class TelaRendasEsporadicas extends StatelessWidget {
   @override
   var controller = new MoneyMaskedTextController(
       decimalSeparator: ',', thousandSeparator: '.');

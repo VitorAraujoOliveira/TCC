@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../MenuScaffold/MenuScaffold.dart';
 import 'DespesasEsporadicas.dart';
+import 'RendasEsporadicas.dart';
 
 class TelaInicial extends StatelessWidget {
   @override
@@ -123,7 +124,12 @@ class TelaPrincipal extends StatelessWidget {
                 height: 85.0,
                 child: RaisedButton(
                   color: Colors.green[400],
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => RendasEsporadicas()),
+                    );
+                  },
                   child: Text("Adicionar Rendas Esporádicas",
                       style: TextStyle(color: Colors.white, fontSize: 20)),
                 ),
