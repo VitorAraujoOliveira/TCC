@@ -7,6 +7,8 @@ import '../MenuScaffold/MenuScaffold.dart';
 import 'package:flutter_masked_text/flutter_masked_text.dart';
 import 'package:flutter/material.dart';
 
+import 'Projections.dart';
+
 
 class DespesasEsporadicas extends StatelessWidget {
   @override
@@ -117,7 +119,10 @@ class TelaDespEsporadicas extends StatelessWidget {
           child: RaisedButton(
             color: Colors.blue[300],
             onPressed: () {
-              
+                     Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Projections()),
+                    );             
             },
             child: RichText(
                       text: TextSpan(

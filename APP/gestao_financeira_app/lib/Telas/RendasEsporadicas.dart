@@ -7,6 +7,8 @@ import '../MenuScaffold/MenuScaffold.dart';
 import 'package:flutter_masked_text/flutter_masked_text.dart';
 import 'package:flutter/material.dart';
 
+import 'Projections.dart';
+
 
 class RendasEsporadicas extends StatelessWidget {
   @override
@@ -43,7 +45,7 @@ class TelaRendasEsporadicas extends StatelessWidget {
           child: ListView(children: <Widget>[
             ListTile(
                 title: Text("Data", style: fonteLocal),
-                trailing: EsporadicDateTimePicker()),
+                trailing: EsporadicGainDatePicker()),
             Container(height: 15),
             ListTile(
               title: Text("Valor", style: fonteLocal),
@@ -91,9 +93,9 @@ class TelaRendasEsporadicas extends StatelessWidget {
           minWidth: 50.0,
           height: 85.0,
           child: RaisedButton(
-            color: Colors.red[300],
+            color: Colors.green[300],
             onPressed: () {},
-            child: Text("Configuração de Despesas",
+            child: Text("Configuração de Rendas",
                 style: TextStyle(color: Colors.white, fontSize: 20)),
           ),
         ),
@@ -102,11 +104,11 @@ class TelaRendasEsporadicas extends StatelessWidget {
           minWidth: 50.0,
           height: 85.0,
           child: RaisedButton(
-            color: Colors.red[300],
+            color: Colors.green[300],
             onPressed: () {
 
             },
-            child: Text("Adicionar Despesas Constantes",
+            child: Text("Adicionar Rendas Constantes",
                 style: TextStyle(color: Colors.white, fontSize: 20)),
           ),
         ),
@@ -117,7 +119,10 @@ class TelaRendasEsporadicas extends StatelessWidget {
           child: RaisedButton(
             color: Colors.blue[300],
             onPressed: () {
-              
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Projections()),
+                    );
             },
             child: RichText(
                       text: TextSpan(

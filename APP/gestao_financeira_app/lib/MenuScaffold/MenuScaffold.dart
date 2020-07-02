@@ -1,5 +1,6 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:gestao_financeira_app/Telas/Projections.dart';
 import 'package:gestao_financeira_app/Telas/TelaInicial.dart';
 
 
@@ -47,7 +48,10 @@ class MenuScaffold extends StatelessWidget {
               title: Text('Projeções'),
               trailing: Icon(Icons.multiline_chart, color: Colors.blue,),
               onTap: () {
-
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Projections()),
+                    );
               },
             ),
 
