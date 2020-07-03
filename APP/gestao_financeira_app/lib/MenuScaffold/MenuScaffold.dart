@@ -1,5 +1,8 @@
+import 'dart:io';
+
 import 'package:flutter/widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:gestao_financeira_app/Telas/ClassesConfig.dart';
 import 'package:gestao_financeira_app/Telas/Projections.dart';
 import 'package:gestao_financeira_app/Telas/TelaInicial.dart';
 
@@ -74,6 +77,11 @@ class MenuScaffold extends StatelessWidget {
               trailing: Icon(Icons.widgets, color: Colors.blue,),
               onTap: () {
 
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => ClassesConfig()),
+                    );
+
               },
             ),
 
@@ -102,6 +110,7 @@ class MenuScaffold extends StatelessWidget {
             ListTile(
               title: Text('Sair'),
               onTap: () {
+                //exit(1);
                 Navigator.pop(context);
                 Navigator.pop(context);
               },),
