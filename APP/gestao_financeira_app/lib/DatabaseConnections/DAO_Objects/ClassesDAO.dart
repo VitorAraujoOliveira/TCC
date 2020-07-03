@@ -19,7 +19,7 @@ class ClassesDAO{
   }
 
   Future updateStudent(ClassesModel classe) async{
-    final finder = Finder(filter: Filter.byKey(classe.id_entry));
+    final finder = Finder(filter: Filter.byKey(classe.nome_classe));
     await _classesFolder.update(await _db, classe.toJson(),finder: finder);
 
   }

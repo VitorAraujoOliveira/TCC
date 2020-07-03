@@ -3,7 +3,13 @@ import '../MenuScaffold/MenuScaffold.dart';
 import 'DespesasEsporadicas.dart';
 import 'RendasEsporadicas.dart';
 
-class TelaInicial extends StatelessWidget {
+
+class TelaInicial extends StatefulWidget {
+  _HomePageState createState() => _HomePageState();
+}
+
+
+class _HomePageState extends State<TelaInicial> { 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -158,3 +164,4 @@ class TelaPrincipal extends StatelessWidget {
     );
   }
 }
+

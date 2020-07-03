@@ -8,8 +8,18 @@ import 'package:flutter/material.dart';
 
 
 
+class ClassesConfig extends StatefulWidget {
+  ClassesGeneral createState() => ClassesGeneral();
 
-class ClassesConfig extends StatelessWidget {
+  
+}
+
+
+
+
+
+
+class ClassesGeneral extends State<ClassesConfig> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -76,7 +86,7 @@ class TelaConfigClasses extends StatelessWidget {
 class BotaoAdd extends StatelessWidget {
 
   @override
-  var teste = new ClassesModel(id_entry: 22, nome_classe: "Classe", tipo_classe: "Renda");
+  var teste = new ClassesModel(id_entry: 55855, nome_classe: "Classe", tipo_classe: "Renda");
 
   Widget build(BuildContext context) {
     // TODO: implement build
@@ -115,7 +125,7 @@ class ItensLista extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-        return FutureBuilder(
+      return FutureBuilder<dynamic>(
       future: ClassesDAO().getAllClasses(),
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.done) {
@@ -126,22 +136,28 @@ class ItensLista extends StatelessWidget {
             objeto.add(i);
           }
 
-          return Container(
-            child: ListView.builder(
+          return ListView.builder(
               itemCount: objeto.length,
               itemBuilder: (context, index) {
                 return ListTile(
-                  title: Text(objeto[1].toString()),
+                  title: Text(objeto[index].toString()),
+                  trailing: RaisedButton(child: Text("teste"), onPressed: () { 
+                    print("TEste");
+                    var X = new ClassesDAO().delete(objeto[index]);
+                    new ItensLista().build(context);
+                    print("TEste");
+                    print(X);
+                    },),
                   onTap: () async {
-
+                    ClassesDAO().delete(objeto[index]);
                   },
                   onLongPress: () {
 
                   },
                 );
               },
-            ),
-          );
+            );
+
         } else if (snapshot.hasError) {
           throw snapshot.error;
         } else {
@@ -152,3 +168,4 @@ class ItensLista extends StatelessWidget {
   }
   
 }
+
