@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import '../MenuScaffold/MenuScaffold.dart';
 import 'DespesasEsporadicas.dart';
-import 'RendasEsporadicas.dart';
+import 'MainConfig.dart';
 
+import 'RendasEsporadicas.dart';
 
 class TelaInicial extends StatefulWidget {
   _HomePageState createState() => _HomePageState();
 }
 
-
-class _HomePageState extends State<TelaInicial> { 
+class _HomePageState extends State<TelaInicial> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -78,7 +78,12 @@ class TelaPrincipal extends StatelessWidget {
                 height: 85.0,
                 child: RaisedButton(
                     color: Colors.blue[200],
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => MainConfig()),
+                      );
+                    },
                     child: RichText(
                       text: TextSpan(
                         style: Theme.of(context).textTheme.body1,
@@ -101,7 +106,9 @@ class TelaPrincipal extends StatelessWidget {
                       ),
                     )),
               ),
-              Container(height: 10,),
+              Container(
+                height: 10,
+              ),
               ButtonTheme(
                 minWidth: 50.0,
                 height: 85.0,
@@ -112,8 +119,9 @@ class TelaPrincipal extends StatelessWidget {
                       style: TextStyle(color: Colors.white, fontSize: 20)),
                 ),
               ),
-
-              Container(height: 10,),
+              Container(
+                height: 10,
+              ),
               ButtonTheme(
                 minWidth: 50.0,
                 height: 85.0,
@@ -124,7 +132,9 @@ class TelaPrincipal extends StatelessWidget {
                       style: TextStyle(color: Colors.white, fontSize: 20)),
                 ),
               ),
-              Container(height: 10,),
+              Container(
+                height: 10,
+              ),
               ButtonTheme(
                 minWidth: 50.0,
                 height: 85.0,
@@ -133,14 +143,17 @@ class TelaPrincipal extends StatelessWidget {
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => RendasEsporadicas()),
+                      MaterialPageRoute(
+                          builder: (context) => RendasEsporadicas()),
                     );
                   },
                   child: Text("Adicionar Rendas Esporádicas",
                       style: TextStyle(color: Colors.white, fontSize: 20)),
                 ),
               ),
-              Container(height: 10,),
+              Container(
+                height: 10,
+              ),
               ButtonTheme(
                 minWidth: 100.0,
                 height: 85.0,
@@ -149,14 +162,14 @@ class TelaPrincipal extends StatelessWidget {
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => DespesasEsporadicas()),
+                      MaterialPageRoute(
+                          builder: (context) => DespesasEsporadicas()),
                     );
                   },
                   child: Text("Adicionar Despesas Esporádicas",
                       style: TextStyle(color: Colors.white, fontSize: 20)),
                 ),
               ),
-
             ],
           ),
         ),
@@ -164,4 +177,3 @@ class TelaPrincipal extends StatelessWidget {
     );
   }
 }
-

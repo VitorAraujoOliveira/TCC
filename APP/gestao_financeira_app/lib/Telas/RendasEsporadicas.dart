@@ -9,7 +9,6 @@ import 'package:flutter/material.dart';
 
 import 'Projections.dart';
 
-
 class RendasEsporadicas extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -105,9 +104,7 @@ class TelaRendasEsporadicas extends StatelessWidget {
           height: 85.0,
           child: RaisedButton(
             color: Colors.green[300],
-            onPressed: () {
-
-            },
+            onPressed: () {},
             child: Text("Adicionar Rendas Constantes",
                 style: TextStyle(color: Colors.white, fontSize: 20)),
           ),
@@ -119,29 +116,30 @@ class TelaRendasEsporadicas extends StatelessWidget {
           child: RaisedButton(
             color: Colors.blue[300],
             onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => Projections()),
-                    );
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => Projections()),
+              );
             },
             child: RichText(
-                      text: TextSpan(
-                        style: Theme.of(context).textTheme.body1,
-                        children: [
-                          TextSpan(
-                              text: 'Tela de Projeções  ',
-                              style:
-                                  TextStyle(color: Colors.white, fontSize: 20)),
-                          WidgetSpan(
-                            child: Padding(
-                              padding:
-                                  const EdgeInsets.symmetric(horizontal: 2.0),
-                              child: Icon(Icons.multiline_chart, color: Colors.white,),
-                            ),
-                          ),
-                        ],
+              text: TextSpan(
+                style: Theme.of(context).textTheme.body1,
+                children: [
+                  TextSpan(
+                      text: 'Tela de Projeções  ',
+                      style: TextStyle(color: Colors.white, fontSize: 20)),
+                  WidgetSpan(
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 2.0),
+                      child: Icon(
+                        Icons.multiline_chart,
+                        color: Colors.white,
                       ),
                     ),
+                  ),
+                ],
+              ),
+            ),
           ),
         ),
       ],
