@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:gestao_financeira_app/UsableAssets/DateTimePicker.dart';
 
 import 'package:gestao_financeira_app/UsableAssets/SuspendedListPicker.dart';
+import 'package:gestao_financeira_app/UsableAssets/flutter_search_pannel/search_item.dart';
 import '../MenuScaffold/MenuScaffold.dart';
 import 'package:flutter_masked_text/flutter_masked_text.dart';
 import 'package:flutter/material.dart';
@@ -60,7 +61,11 @@ class TelaRendasEsporadicas extends StatelessWidget {
             Container(height: 15),
             ListTile(
               title: Text("Classe", style: fonteLocal),
-              trailing: SuspendedListPicker(),
+              trailing: SuspendedListPicker([
+                SearchItem(1, "Classe1"),
+                SearchItem(1, "Classe2"),
+                SearchItem(1, "Classe3"),
+              ]),
             ),
           ]),
         ),

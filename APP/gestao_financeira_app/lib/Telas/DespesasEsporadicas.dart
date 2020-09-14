@@ -3,12 +3,12 @@ import 'package:flutter/services.dart';
 import 'package:gestao_financeira_app/UsableAssets/DateTimePicker.dart';
 
 import 'package:gestao_financeira_app/UsableAssets/SuspendedListPicker.dart';
+import 'package:gestao_financeira_app/UsableAssets/flutter_search_pannel/search_item.dart';
 import '../MenuScaffold/MenuScaffold.dart';
 import 'package:flutter_masked_text/flutter_masked_text.dart';
 import 'package:flutter/material.dart';
 
 import 'Projections.dart';
-
 
 class DespesasEsporadicas extends StatelessWidget {
   @override
@@ -61,7 +61,11 @@ class TelaDespEsporadicas extends StatelessWidget {
             Container(height: 15),
             ListTile(
               title: Text("Classe", style: fonteLocal),
-              trailing: SuspendedListPicker(),
+              trailing: SuspendedListPicker([
+                SearchItem(1, "Classe1"),
+                SearchItem(1, "Classe2"),
+                SearchItem(1, "Classe3"),
+              ]),
             ),
           ]),
         ),
@@ -105,9 +109,7 @@ class TelaDespEsporadicas extends StatelessWidget {
           height: 85.0,
           child: RaisedButton(
             color: Colors.red[300],
-            onPressed: () {
-
-            },
+            onPressed: () {},
             child: Text("Adicionar Despesas Constantes",
                 style: TextStyle(color: Colors.white, fontSize: 20)),
           ),
@@ -119,29 +121,30 @@ class TelaDespEsporadicas extends StatelessWidget {
           child: RaisedButton(
             color: Colors.blue[300],
             onPressed: () {
-                     Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => Projections()),
-                    );             
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => Projections()),
+              );
             },
             child: RichText(
-                      text: TextSpan(
-                        style: Theme.of(context).textTheme.body1,
-                        children: [
-                          TextSpan(
-                              text: 'Tela de Projeções  ',
-                              style:
-                                  TextStyle(color: Colors.white, fontSize: 20)),
-                          WidgetSpan(
-                            child: Padding(
-                              padding:
-                                  const EdgeInsets.symmetric(horizontal: 2.0),
-                              child: Icon(Icons.multiline_chart, color: Colors.white,),
-                            ),
-                          ),
-                        ],
+              text: TextSpan(
+                style: Theme.of(context).textTheme.body1,
+                children: [
+                  TextSpan(
+                      text: 'Tela de Projeções  ',
+                      style: TextStyle(color: Colors.white, fontSize: 20)),
+                  WidgetSpan(
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 2.0),
+                      child: Icon(
+                        Icons.multiline_chart,
+                        color: Colors.white,
                       ),
                     ),
+                  ),
+                ],
+              ),
+            ),
           ),
         ),
       ],

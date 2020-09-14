@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:gestao_financeira_app/Telas/DespesasConstantes.dart';
 import '../MenuScaffold/MenuScaffold.dart';
 import 'DespesasEsporadicas.dart';
 import 'MainConfig.dart';
-
+import 'DespesasConstantes.dart';
 import 'RendasEsporadicas.dart';
 
 class TelaInicial extends StatefulWidget {
@@ -31,12 +32,11 @@ class TelaPrincipal extends StatelessWidget {
       padding: const EdgeInsets.all(10),
       children: <Widget>[
         Text(
-          'Visão Mensal - (Agosto,2020)',
+          'Visão Mensal - (Setembro,2020)',
           style: TextStyle(fontSize: 20),
         ),
         Container(
           //color: Colors.grey[300],
-
           child: ListView(children: <Widget>[
             ExpansionTile(
               title: Text(
@@ -47,10 +47,25 @@ class TelaPrincipal extends StatelessWidget {
                   style: TextStyle(color: Colors.green, fontSize: 20)),
             ),
             ExpansionTile(
-                title: Text("Despesas Totais: ",
-                    style: TextStyle(color: Colors.red, fontSize: 20)),
-                trailing: Text('\$ 123,33',
-                    style: TextStyle(color: Colors.red, fontSize: 20))),
+              title: Text("Despesas Totais: ",
+                  style: TextStyle(color: Colors.red, fontSize: 20)),
+              trailing: Text('\$ 123,33',
+                  style: TextStyle(color: Colors.red, fontSize: 20)),
+              children: [
+                ListTile(
+                  title: Text("10/09/2020"),
+                  trailing: Text("10,33"),
+                ),
+                ListTile(
+                  title: Text("03/09/2020"),
+                  trailing: Text("13,00"),
+                ),
+                ListTile(
+                  title: Text("01/09/2020"),
+                  trailing: Text("100,00"),
+                ),
+              ],
+            ),
             ExpansionTile(
                 title: Text(
                   "Saldos Totais: ",
@@ -61,7 +76,7 @@ class TelaPrincipal extends StatelessWidget {
                   style: TextStyle(fontSize: 20),
                 ))
           ]),
-          height: 190,
+          height: MediaQuery.of(context).size.height * 0.25,
 
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(15),
@@ -69,13 +84,13 @@ class TelaPrincipal extends StatelessWidget {
           ),
         ),
         Container(
-          height: 500,
+          height: MediaQuery.of(context).size.height * 0.59,
           padding: const EdgeInsets.all(15),
-          child: ListView(
+          child: Column(
             children: <Widget>[
               ButtonTheme(
-                minWidth: 50.0,
-                height: 85.0,
+                minWidth: MediaQuery.of(context).size.width * 0.90,
+                height: MediaQuery.of(context).size.height * 0.10,
                 child: RaisedButton(
                     color: Colors.blue[200],
                     onPressed: () {
@@ -110,11 +125,17 @@ class TelaPrincipal extends StatelessWidget {
                 height: 10,
               ),
               ButtonTheme(
-                minWidth: 50.0,
-                height: 85.0,
+                minWidth: MediaQuery.of(context).size.width * 0.90,
+                height: MediaQuery.of(context).size.height * 0.10,
                 child: RaisedButton(
                   color: Colors.red[200],
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => DespesasConstantes()),
+                    );
+                  },
                   child: Text("Adicionar Despesas Constantes",
                       style: TextStyle(color: Colors.white, fontSize: 20)),
                 ),
@@ -123,8 +144,8 @@ class TelaPrincipal extends StatelessWidget {
                 height: 10,
               ),
               ButtonTheme(
-                minWidth: 50.0,
-                height: 85.0,
+                minWidth: MediaQuery.of(context).size.width * 0.90,
+                height: MediaQuery.of(context).size.height * 0.10,
                 child: RaisedButton(
                   color: Colors.green[200],
                   onPressed: () {},
@@ -136,8 +157,8 @@ class TelaPrincipal extends StatelessWidget {
                 height: 10,
               ),
               ButtonTheme(
-                minWidth: 50.0,
-                height: 85.0,
+                minWidth: MediaQuery.of(context).size.width * 0.90,
+                height: MediaQuery.of(context).size.height * 0.10,
                 child: RaisedButton(
                   color: Colors.green[400],
                   onPressed: () {
@@ -155,8 +176,8 @@ class TelaPrincipal extends StatelessWidget {
                 height: 10,
               ),
               ButtonTheme(
-                minWidth: 100.0,
-                height: 85.0,
+                minWidth: MediaQuery.of(context).size.width * 0.90,
+                height: MediaQuery.of(context).size.height * 0.10,
                 child: RaisedButton(
                   color: Colors.red[400],
                   onPressed: () {

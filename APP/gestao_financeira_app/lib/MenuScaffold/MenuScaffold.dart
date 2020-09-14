@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:gestao_financeira_app/Telas/AlertConfig.dart';
 import 'package:gestao_financeira_app/Telas/ClassesConfig.dart';
 import 'package:gestao_financeira_app/Telas/MainConfig.dart';
 import 'package:gestao_financeira_app/Telas/Projections.dart';
@@ -11,10 +12,10 @@ class MenuScaffold extends StatelessWidget {
   Widget build(BuildContext context) {
     return Drawer(
       child: ListView(
-        padding: EdgeInsets.all(10),
+        //padding: EdgeInsets.all(5),
         children: <Widget>[
           Container(
-              height: 100,
+              height: MediaQuery.of(context).size.height * 0.1,
               child: DrawerHeader(
                 child: Text("Gestão Financeira Pessoal e Familiar",
                     textAlign: TextAlign.center,
@@ -72,7 +73,12 @@ class MenuScaffold extends StatelessWidget {
               Icons.warning,
               color: Colors.yellow[900],
             ),
-            onTap: () {},
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => AlertConfig()),
+              );
+            },
           ),
           ListTile(
             title: Text('Backup'),
@@ -96,7 +102,7 @@ class MenuScaffold extends StatelessWidget {
             },
           ),
           ListTile(
-            title: Text('Confugurar Despesas'),
+            title: Text('Configurar Despesas'),
             trailing: Icon(
               Icons.pie_chart_outlined,
               color: Colors.red,
@@ -104,7 +110,7 @@ class MenuScaffold extends StatelessWidget {
             onTap: () {},
           ),
           ListTile(
-            title: Text('Confugurar Rendas'),
+            title: Text('Configurar Rendas'),
             trailing: Icon(
               Icons.pie_chart,
               color: Colors.green,
