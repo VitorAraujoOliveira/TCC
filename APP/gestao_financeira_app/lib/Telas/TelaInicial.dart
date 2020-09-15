@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gestao_financeira_app/Telas/DespesasConstantes.dart';
+import 'package:gestao_financeira_app/Telas/RendasConstantes.dart';
 import '../MenuScaffold/MenuScaffold.dart';
 import 'DespesasEsporadicas.dart';
 import 'MainConfig.dart';
@@ -32,7 +33,7 @@ class TelaPrincipal extends StatelessWidget {
       padding: const EdgeInsets.all(10),
       children: <Widget>[
         Text(
-          'Visão Mensal - (Setembro,2020)',
+          'Visão Mensal - ${DateTime.now().day}/${DateTime.now().month}/${DateTime.now().year}',
           style: TextStyle(fontSize: 20),
         ),
         Container(
@@ -148,7 +149,13 @@ class TelaPrincipal extends StatelessWidget {
                 height: MediaQuery.of(context).size.height * 0.10,
                 child: RaisedButton(
                   color: Colors.green[200],
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => RendasConstantes()),
+                    );
+                  },
                   child: Text("Adicionar Rendas Constantes",
                       style: TextStyle(color: Colors.white, fontSize: 20)),
                 ),

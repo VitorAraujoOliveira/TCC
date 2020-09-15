@@ -72,7 +72,7 @@ class TelaDespEsporadicas extends StatelessWidget {
         Container(height: 10),
         ListTile(
           title: ButtonTheme(
-            minWidth: 120.0,
+            minWidth: MediaQuery.of(context).size.width * 0.4,
             height: 30.0,
             child: FlatButton(
               color: Colors.grey[300],
@@ -82,7 +82,7 @@ class TelaDespEsporadicas extends StatelessWidget {
             ),
           ),
           trailing: ButtonTheme(
-            minWidth: 200.0,
+            minWidth: MediaQuery.of(context).size.width * 0.5,
             height: 60.0,
             child: RaisedButton(
               color: Colors.green[400],

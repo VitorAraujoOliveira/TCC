@@ -68,12 +68,18 @@ class DespesasConstantesT extends State<DespesasConstantes> {
                       SearchItem(1, "2"),
                       SearchItem(1, "3"),
                       SearchItem(1, "..."),
-                      SearchItem(1, "até cancelada"),
+                      SearchItem(1, "Até Cancelada"),
                     ]),
                   ),
                   ListTile(
-                      title: Text("Data Cobrança", style: fonteLocal),
-                      trailing: Text("ok")),
+                      title: Text("Dia Cobrança", style: fonteLocal),
+                      trailing: SuspendedListPicker([
+                        SearchItem(1, "1"),
+                        SearchItem(2, "2"),
+                        SearchItem(3, "3"),
+                        SearchItem(4, "..."),
+                        SearchItem(5, "31"),
+                      ])),
                   //Container(height: 15),
                   ListTile(
                     title: Text("Valor", style: fonteLocal),
@@ -111,17 +117,17 @@ class DespesasConstantesT extends State<DespesasConstantes> {
               Container(height: 10),
               ListTile(
                 title: ButtonTheme(
-                  minWidth: 120.0,
+                  minWidth: MediaQuery.of(context).size.width * 0.4,
                   height: 30.0,
                   child: FlatButton(
                     color: Colors.grey[300],
                     onPressed: () {},
                     child: Text("Limpar",
-                        style: TextStyle(color: Colors.black, fontSize: 20)),
+                        style: TextStyle(color: Colors.black, fontSize: 18)),
                   ),
                 ),
                 trailing: ButtonTheme(
-                  minWidth: 200.0,
+                  minWidth: MediaQuery.of(context).size.width * 0.5,
                   height: 60.0,
                   child: RaisedButton(
                     color: Colors.green[400],
