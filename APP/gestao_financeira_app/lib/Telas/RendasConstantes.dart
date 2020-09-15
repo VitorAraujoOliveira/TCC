@@ -66,13 +66,13 @@ class RendasConstantesTela extends State<RendasConstantes> {
                   ),
                   ListTile(
                     title: Text("Periodicidade", style: fonteLocal),
-                    trailing: SuspendedListPicker([
+                    trailing: SuspendedListPicker(data: [
                       SearchItem(1, "Mensal"),
                     ]),
                   ),
                   ListTile(
                     title: Text("Parcelas", style: fonteLocal),
-                    trailing: SuspendedListPicker([
+                    trailing: SuspendedListPicker(data: [
                       SearchItem(1, "2"),
                       SearchItem(1, "3"),
                       SearchItem(1, "..."),
@@ -81,7 +81,7 @@ class RendasConstantesTela extends State<RendasConstantes> {
                   ),
                   ListTile(
                     title: Text("Data Crédito", style: fonteLocal),
-                    trailing: SuspendedListPicker(diasMes),
+                    trailing: SuspendedListPicker(data: diasMes),
                   ),
                   //Container(height: 15),
                   ListTile(
@@ -98,7 +98,8 @@ class RendasConstantesTela extends State<RendasConstantes> {
                   //Container(height: 15),
                   ListTile(
                     title: Text("Classe", style: fonteLocal),
-                    trailing: SuspendedListPicker([SearchItem(1, "Classe")]),
+                    trailing:
+                        SuspendedListPicker(data: [SearchItem(1, "Classe")]),
                   ),
                   ListTile(
                     autofocus: true,

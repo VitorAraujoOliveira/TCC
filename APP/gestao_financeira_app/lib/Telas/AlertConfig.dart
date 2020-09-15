@@ -55,9 +55,6 @@ class TelaConfigClasses extends StatelessWidget {
 
 class BotaoAdd extends StatelessWidget {
   @override
-  var teste = new ClassesModel(
-      id_entry: 55855, nome_classe: "Classe", tipo_classe: "Renda");
-
   Widget build(BuildContext context) {
     // TODO: implement build
     return ButtonTheme(
@@ -66,8 +63,8 @@ class BotaoAdd extends StatelessWidget {
       child: RaisedButton(
         color: Colors.purple[300],
         onPressed: () {
-          print(teste);
-          ClassesDAO().insertClass(teste);
+          //print(teste);
+          //ClassesDAO().insertClass(teste);
           //ItensLista().build(context);
         },
         child: RichText(

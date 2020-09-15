@@ -31,7 +31,7 @@ class ClassesDAO {
     final finder = Finder(filter: Filter.byKey(classe.data_registro));
     await _classesFolder.delete(
       await _db,
-      finder: finder,
+      //finder: finder,
     );
     print(
         "id de entrada ${classe.id_entry} ${Filter.byKey(classe.data_registro)}");

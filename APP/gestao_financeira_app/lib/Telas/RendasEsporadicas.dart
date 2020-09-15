@@ -61,11 +61,16 @@ class TelaRendasEsporadicas extends StatelessWidget {
             Container(height: 15),
             ListTile(
               title: Text("Classe", style: fonteLocal),
-              trailing: SuspendedListPicker([
-                SearchItem(1, "Classe1"),
-                SearchItem(1, "Classe2"),
-                SearchItem(1, "Classe3"),
-              ]),
+              trailing: SuspendedListPicker(
+                data: [
+                  SearchItem(1, "Classe1"),
+                  SearchItem(1, "Classe2"),
+                  SearchItem(1, "Classe3"),
+                ],
+                onChanged: () {
+                  print("AAAAAAAAAAAAAAAAAAAAAAAA");
+                },
+              ),
             ),
           ]),
         ),

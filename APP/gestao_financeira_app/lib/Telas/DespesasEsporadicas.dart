@@ -61,7 +61,7 @@ class TelaDespEsporadicas extends StatelessWidget {
             Container(height: 15),
             ListTile(
               title: Text("Classe", style: fonteLocal),
-              trailing: SuspendedListPicker([
+              trailing: SuspendedListPicker(data: [
                 SearchItem(1, "Classe1"),
                 SearchItem(1, "Classe2"),
                 SearchItem(1, "Classe3"),

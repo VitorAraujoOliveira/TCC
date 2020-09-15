@@ -58,13 +58,13 @@ class DespesasConstantesT extends State<DespesasConstantes> {
                   ),
                   ListTile(
                     title: Text("Periodicidade", style: fonteLocal),
-                    trailing: SuspendedListPicker([
+                    trailing: SuspendedListPicker(data: [
                       SearchItem(1, "Mensal"),
                     ]),
                   ),
                   ListTile(
                     title: Text("Parcelas", style: fonteLocal),
-                    trailing: SuspendedListPicker([
+                    trailing: SuspendedListPicker(data: [
                       SearchItem(1, "2"),
                       SearchItem(1, "3"),
                       SearchItem(1, "..."),
@@ -73,7 +73,7 @@ class DespesasConstantesT extends State<DespesasConstantes> {
                   ),
                   ListTile(
                       title: Text("Dia Cobrança", style: fonteLocal),
-                      trailing: SuspendedListPicker([
+                      trailing: SuspendedListPicker(data: [
                         SearchItem(1, "1"),
                         SearchItem(2, "2"),
                         SearchItem(3, "3"),
@@ -95,7 +95,8 @@ class DespesasConstantesT extends State<DespesasConstantes> {
                   //Container(height: 15),
                   ListTile(
                     title: Text("Classe", style: fonteLocal),
-                    trailing: SuspendedListPicker([SearchItem(1, "Classe")]),
+                    trailing:
+                        SuspendedListPicker(data: [SearchItem(1, "Classe")]),
                   ),
                   ListTile(
                     autofocus: true,
