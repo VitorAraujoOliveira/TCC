@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:gestao_financeira_app/DatabaseConnections/DAO_Objects/ClassesDAO.dart';
@@ -20,6 +22,7 @@ class ClassesGeneral extends State<ClassesConfig> {
   var fonteLocal = TextStyle(fontSize: 30);
   var className = "";
   var tipoClasse;
+  var id_entry_n = Random().nextInt(10000);
 
   Widget build(BuildContext context) {
     return Scaffold(
@@ -78,6 +81,7 @@ class ClassesGeneral extends State<ClassesConfig> {
                       FlatButton(
                         child: Text('Voltar'),
                         onPressed: () {
+                          setState(() {});
                           Navigator.of(context).pop();
                         },
                       ),
@@ -85,12 +89,12 @@ class ClassesGeneral extends State<ClassesConfig> {
                         child: Text('Registrar'),
                         onPressed: () {
                           var form = ClassesModel(
-                              id_entry: 1405,
+                              id_entry: (id_entry_n),
                               nome_classe: className,
                               tipo_classe: tipoClasse);
                           ClassesDAO().insertClass(form);
-                          print("Aqui");
-                          print(tipoClasse);
+
+                          setState(() {});
 
                           Navigator.of(context).pop();
                         },
@@ -99,7 +103,6 @@ class ClassesGeneral extends State<ClassesConfig> {
                   );
                 },
               );
-              ;
             },
             child: RichText(
               text: TextSpan(
@@ -128,7 +131,7 @@ class ClassesGeneral extends State<ClassesConfig> {
                 style: fonteLocal,
               ),
               Container(
-                height: MediaQuery.of(context).size.height * 0.35,
+                height: MediaQuery.of(context).size.height * 0.33,
                 child: FutureBuilder<dynamic>(
                   future: ClassesDAO().getAllClasses(),
                   builder: (context, snapshot) {
@@ -138,7 +141,6 @@ class ClassesGeneral extends State<ClassesConfig> {
 
                       for (var i in snapshot.data) {
                         if (i.tipo_classe == 1) {
-                          print("Rendas");
                           objeto.add(i);
                         }
                       }
@@ -146,25 +148,96 @@ class ClassesGeneral extends State<ClassesConfig> {
                       return ListView.builder(
                         itemCount: objeto.length,
                         itemBuilder: (context, index) {
-                          //setState(() {});
-                          return ListTile(
-                            title: Text(objeto[index].nome_classe.toString()),
-                            trailing: RaisedButton(
-                              child: Text("delete"),
-                              onPressed: () {
-                                ClassesDAO().delete(objeto[index]);
-                                build(context);
+                          return Card(
+                              shadowColor: Colors.black,
+                              child: ListTile(
+                                onTap: () {
+                                  //className = objeto[index].nome_classe;
+                                  showDialog(
+                                    context: context,
+                                    barrierDismissible:
+                                        true, // dialog is dismissible with a tap on the barrier
+                                    builder: (BuildContext context) {
+                                      return AlertDialog(
+                                        shape: RoundedRectangleBorder(),
+                                        title: Text('Dados de Classe'),
+                                        content: new Column(children: [
+                                          new Container(
+                                              width: 900,
+                                              child: new TextField(
+                                                autofocus: true,
+                                                decoration: new InputDecoration(
+                                                    labelText: 'Nome da Classe',
+                                                    labelStyle:
+                                                        TextStyle(fontSize: 20),
+                                                    hintText: className),
+                                                onChanged: (value) {
+                                                  className = value;
+                                                },
+                                              )),
+                                          new Container(height: 30),
+                                          new Text(
+                                            "Tipo de Classe",
+                                            style:
+                                                TextStyle(color: Colors.blue),
+                                          ),
+                                          new SuspendedListPicker(
+                                            data: [
+                                              SearchItem(0, ""),
+                                              SearchItem(1, "Rendas"),
+                                              SearchItem(2, "Despesas")
+                                            ],
+                                            onChanged: (value) {
+                                              tipoClasse = value;
+                                              print("Tipo Classe: $tipoClasse");
+                                            },
+                                          )
+                                        ]),
+                                        actions: [
+                                          FlatButton(
+                                            child: Text('Voltar'),
+                                            onPressed: () {
+                                              setState(() {});
+                                              Navigator.of(context).pop();
+                                            },
+                                          ),
+                                          FlatButton(
+                                            child: Text('Alterar'),
+                                            onPressed: () {
+                                              var form = ClassesModel(
+                                                  id_entry:
+                                                      objeto[index].id_entry,
+                                                  nome_classe: className,
+                                                  tipo_classe: tipoClasse);
+                                              ClassesDAO().updateClass(form);
 
-                                setState(() {});
-                                setState(() {});
-                              },
-                            ),
+                                              setState(() {});
 
-                            // onTap: () async {
-                            //   ClassesDAO().delete(objeto[index]);
-                            // },
-                            onLongPress: () {},
-                          );
+                                              //Navigator.of(context).pop();
+                                            },
+                                          ),
+                                        ],
+                                      );
+                                    },
+                                  );
+                                },
+                                title: Text(objeto[index].nome_classe),
+                                trailing: RaisedButton(
+                                  color: Colors.white,
+                                  child: Icon(
+                                    Icons.delete,
+                                    color: Colors.red[300],
+                                  ),
+                                  onPressed: () {
+                                    ClassesDAO().delete(objeto[index]);
+                                    build(context);
+
+                                    setState(() {});
+                                    setState(() {});
+                                  },
+                                ),
+                                onLongPress: () {},
+                              ));
                         },
                       );
                     } else if (snapshot.hasError) {
@@ -185,7 +258,7 @@ class ClassesGeneral extends State<ClassesConfig> {
                 style: fonteLocal,
               ),
               Container(
-                height: MediaQuery.of(context).size.height * 0.35,
+                height: MediaQuery.of(context).size.height * 0.33,
                 child: FutureBuilder<dynamic>(
                   future: ClassesDAO().getAllClasses(),
                   builder: (context, snapshot) {
@@ -195,7 +268,6 @@ class ClassesGeneral extends State<ClassesConfig> {
 
                       for (var i in snapshot.data) {
                         if (i.tipo_classe == 2) {
-                          print("Despesas");
                           objeto.add(i);
                         }
                       }
@@ -204,24 +276,26 @@ class ClassesGeneral extends State<ClassesConfig> {
                         itemCount: objeto.length,
                         itemBuilder: (context, index) {
                           //setState(() {});
-                          return ListTile(
-                            title: Text(objeto[index].nome_classe.toString()),
-                            trailing: RaisedButton(
-                              child: Text("delete"),
-                              onPressed: () {
-                                ClassesDAO().delete(objeto[index]);
-                                build(context);
+                          return Card(
+                              shadowColor: Colors.black,
+                              child: ListTile(
+                                title: Text(objeto[index].nome_classe),
+                                trailing: RaisedButton(
+                                  color: Colors.white,
+                                  child: Icon(
+                                    Icons.delete,
+                                    color: Colors.red[300],
+                                  ),
+                                  onPressed: () {
+                                    ClassesDAO().delete(objeto[index]);
+                                    build(context);
 
-                                setState(() {});
-                                setState(() {});
-                              },
-                            ),
-
-                            // onTap: () async {
-                            //   ClassesDAO().delete(objeto[index]);
-                            // },
-                            onLongPress: () {},
-                          );
+                                    setState(() {});
+                                    setState(() {});
+                                  },
+                                ),
+                                onLongPress: () {},
+                              ));
                         },
                       );
                     } else if (snapshot.hasError) {

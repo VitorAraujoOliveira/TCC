@@ -14,27 +14,22 @@ class ClassesDAO {
     //print('class Inserted successfully !!');
   }
 
-  Future updateStudent(ClassesModel classe) async {
-    final finder = Finder(filter: Filter.byKey(classe.nome_classe));
+  Future updateClass(ClassesModel classe) async {
+    final finder = Finder(
+        filter: Filter.matches('data_registro', '${classe.data_registro}'));
+
     return await _classesFolder.update(await _db, classe.toJson(),
         finder: finder);
   }
 
-  // Future delete(ClassesModel classe) async {
-  //   final finder = Finder(filter: Filter.byKey(classe.data_registro));
-  //   await _classesFolder.delete(await _db, finder: finder);
-  //   print(
-  //       "id de entrada ${classe.id_entry} ${Filter.byKey(classe.data_registro)}");
-  // }
-
   Future delete(ClassesModel classe) async {
-    final finder = Finder(filter: Filter.byKey(classe.data_registro));
+    final finder = Finder(
+        filter: Filter.matches('data_registro', '${classe.data_registro}'));
     await _classesFolder.delete(
       await _db,
-      //finder: finder,
+      finder: finder,
     );
-    print(
-        "id de entrada ${classe.id_entry} ${Filter.byKey(classe.data_registro)}");
+    print("nome entrada ${classe.id_entry} ${finder}");
   }
 
   Future<List<ClassesModel>> getAllClasses() async {
