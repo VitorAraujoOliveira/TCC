@@ -71,7 +71,7 @@ class ClassesGeneral extends State<ClassesConfig> {
                           SearchItem(1, "Rendas"),
                           SearchItem(2, "Despesas")
                         ],
-                        onChanged: (value) {
+                        onChanged: (value, text) {
                           tipoClasse = value;
                           print("Tipo Classe: $tipoClasse");
                         },
@@ -187,7 +187,7 @@ class ClassesGeneral extends State<ClassesConfig> {
                                               SearchItem(1, "Rendas"),
                                               SearchItem(2, "Despesas")
                                             ],
-                                            onChanged: (value) {
+                                            onChanged: (value, text) {
                                               tipoClasse = value;
                                               print("Tipo Classe: $tipoClasse");
                                             },

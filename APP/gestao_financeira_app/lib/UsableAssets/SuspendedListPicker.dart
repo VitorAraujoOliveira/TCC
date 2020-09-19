@@ -30,8 +30,9 @@ class _SuspendedListPickerState extends State<SuspendedListPicker> {
           icon: Icon(Icons.label, color: Colors.blue[300]),
           color: Colors.white,
           textStyle: TextStyle(color: Colors.black, fontSize: 28.0),
-          onChanged: (value) {
-            widget.onChanged(value);
+          onChanged: (value, text) {
+            //print(test);
+            widget.onChanged(value,text);
           },
         ));
   }

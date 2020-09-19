@@ -74,30 +74,28 @@ class _FlutterSearchPanelState<TValue>
         selection = result;
       });
       if (widget.onChanged != null) {
-        widget.onChanged((result as SearchItem<TValue>).value);
+        widget.onChanged((result as SearchItem<TValue>).value,
+            (result as SearchItem<TValue>).text);
       }
     }
   }
 
   @override
   Widget build(BuildContext context) => new InkWell(
-    onTap: _openSearchPage,
-    child: SizedBox(
-    //height: MediaQuery.of(context).size.height,
-    child: Container(
-        decoration: BoxDecoration(
-            border: Border.all(color: Colors.black)),
+        onTap: _openSearchPage,
+        child: SizedBox(
+          //height: MediaQuery.of(context).size.height,
+          child: Container(
+            decoration: BoxDecoration(border: Border.all(color: Colors.black)),
             child: Text(
-                selection.text,
-
-                textAlign: TextAlign.right,
-                style: widget.textStyle ?? Theme.of(context).textTheme.button, 
+              selection.text,
+              textAlign: TextAlign.right,
+              style: widget.textStyle ?? Theme.of(context).textTheme.button,
             ),
+          ),
         ),
-    ),
-);
+      );
 }
-
 
 // RaisedButton(
 //         color: widget.color ?? Colors.blue,
