@@ -288,7 +288,8 @@ class ItensListaState extends State<ItensLista> {
                 title: Text(
                     "${objeto[0][index].classe} ${objeto[0][index].classe_Alerta}  ${objeto[0][index].valor_Alerta}"),
                 trailing: RaisedButton(
-                  child: Text("delete"),
+                  color: Colors.white,
+                  child: Icon(Icons.delete, color: Colors.red),
                   onPressed: () {
                     print("Teste");
                     AlertsDAO().deleteAlert(objeto[0][index]);
